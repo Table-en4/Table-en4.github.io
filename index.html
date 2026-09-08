@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mohamed Lapouge, étudiant à 42 Paris. Profil technique : C, C++, produit, data.">
+  <meta name="author" content="Mohamed Lapouge">
+  <meta name="theme-color" content="#fff4ea">
+  <title>Mohamed Lapouge — 42 Paris</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/site.css">
+</head>
+<body>
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-a"></span>
+    <span class="blob blob-b"></span>
+    <span class="blob blob-c"></span>
+  </div>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="masthead">
+    <a class="wordmark" href="./">Mohamed <em>Lapouge</em></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#profil">Profil</a>
+      <a href="#competences">Compétences</a>
+      <a href="#travail">Travail</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact">Contact</a>
+      <button type="button" class="theme-btn" data-theme>Thème : clair</button>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="profil" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">42 Paris · Table-en4</p>
+        <h1 id="hero-title">
+          <span>Ingénierie</span>
+          <span>basse, produits</span>
+          <span>un peu sales.</span>
+        </h1>
+        <p class="lede">Étudiant à 42 depuis 2025. Je construis surtout en C et C++ — shells, HTTP, processus — et je sors aussi des trucs qui doivent marcher chez un client : estimation immo, copilotes, NLP.</p>
+        <p>Ce site n’est pas un dump de dépôts. C’est le profil que mon GitHub raconte, relu.</p>
+      </div>
+      <figure class="portrait">
+        <img src="https://avatars.githubusercontent.com/u/100876346?v=4" width="280" height="280" alt="Avatar GitHub de Mohamed Lapouge">
+        <figcaption>@Table-en4</figcaption>
+      </figure>
+    </section>
+
+    <section class="band" aria-label="Chiffres tirés de GitHub">
+      <div class="stats" data-stats></div>
+    </section>
+
+    <section id="competences" aria-labelledby="skills-title">
+      <div class="section-intro">
+        <h2 id="skills-title">Ce que je touche vraiment</h2>
+        <p>Pondéré par ce que j’ai réellement poussé : 42, missions, hackathons. Pas une liste de buzzwords.</p>
+      </div>
+      <ul class="skills" data-skills></ul>
+    </section>
+
+    <section id="travail" aria-labelledby="work-title">
+      <div class="section-intro">
+        <h2 id="work-title">Travail</h2>
+        <p>Six morceaux qui disent comment je code. Le détail est dans les repos ; ici, c’est le métier.</p>
+      </div>
+      <div class="work" data-featured>
+        <noscript>
+          <article class="work-card">
+            <h3>BidEdge</h3>
+            <p>Copilote d’enchères, RAISE Summit 2026.</p>
+          </article>
+        </noscript>
+      </div>
+    </section>
+
+    <section id="parcours" aria-labelledby="path-title">
+      <div class="section-intro">
+        <h2 id="path-title">Parcours</h2>
+        <p>Pas un CV en colonnes. Les dates qui comptent.</p>
+      </div>
+      <ol class="path" data-timeline></ol>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-intro">
+        <h2 id="contact-title">Écrire</h2>
+      </div>
+      <p class="contact-line">Un stage, un hackathon, un truc à casser : <a href="mailto:mohapouge@gmail.com">mohapouge@gmail.com</a>. Le compte : <a href="https://github.com/Table-en4" rel="noopener noreferrer">github.com/Table-en4</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span data-year>2026</span> Mohamed Lapouge</p>
+    <p>Page statique. Pas de traqueurs.</p>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
