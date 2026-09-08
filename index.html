@@ -14,7 +14,7 @@
   <style>
     /* Design System - Épuré et Professionnel */
     :root {
-      --bg-color: #faf9f8;
+      --bg-color: #25283D;
       --text-main: #2d3748;
       --text-muted: #718096;
       --accent: #2b6cb0;
@@ -32,9 +32,16 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .UserName {
+      color: #0E7C7B;
+      font-size: 1.5rem 5;
+      font-weight: 1000;
+      letter-spacing: +0.1em;
+    }
+
     h1, h2, h3, .wordmark {
       font-family: 'Fraunces', serif;
-      color: #1a202c;
+      color: #0E7C7B;
     }
 
     a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
@@ -131,7 +138,7 @@
     }
 
     .work-card {
-      background: var(--card-bg);
+      background: #F1E3F3;
       padding: 2rem;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -162,7 +169,7 @@
       width: 12px; height: 12px; background: var(--bg-color);
       border: 2px solid var(--accent); border-radius: 50%;
     }
-    .timeline-date { font-weight: 600; color: var(--accent); font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .timeline-date { font-weight: 600; color: #0E7C7B; font-size: 0.9rem; margin-bottom: 0.25rem; }
     .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
     .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
 
@@ -186,7 +193,7 @@
 
   <div class="container">
     <header class="masthead">
-      <a class="wordmark" href="./">Mohamed Lapouge</a>
+      <a class="UserName" href="./">Mohamed Lapouge</a>
       <nav class="nav" aria-label="Menu principal">
         <a href="#profil">Profil</a>
         <a href="#competences">Compétences</a>
@@ -201,14 +208,14 @@
         <p class="timeline-date">École 42 Paris</p>
         <h1 class="hero-title">Ingénierie logicielle & architecture système.</h1>
         <p class="hero-lede">
-          Étudiant à l'École 42, je conçois des systèmes performants et des applications complètes. Mon approche allie une maîtrise de la programmation bas niveau (C/C++) à la création de solutions web et data robustes (Python, Next.js, environnements Docker).
+          Étudiant à l'École 42, je conçois des systèmes performants et des applications complètes avec des solutions d'intelligence artifcielle. Mon approche allie une maîtrise de la programmation bas niveau (C/C++) à la création de solutions web et data robustes (Python, Next.js, environnements Docker).
         </p>
       </section>
 
       <section id="competences">
         <div class="section-intro">
           <h2 class="section-title">Expertise Technique</h2>
-          <p>Une stack axée sur la performance, la scalabilité et le déploiement de bout en bout, éprouvée lors de hackathons et de projets complexes à 42.</p>
+          <p>Une stack axée sur la performance, la scalabilité et le déploiement de bout en bout, éprouvée lors de hackathons, de projets persos et de projets complexes à 42.</p>
         </div>
         
         <div class="skills-grid">
@@ -239,13 +246,31 @@
               <li>Ingénierie de données (Pandas, DVF)</li>
             </ul>
           </div>
+          <div class="skill-category">
+            <h3>App Mobile</h3>
+            <ul>
+              <li>Kotlin & Flutter</li>
+              <li>React</li>
+              <li>Application dynamique</li>
+              <li>Style épuré</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Réseau & Pentest</h3>
+            <ul>
+              <li>Test d'intruision réseau</li>
+              <li>Annalyse requetes</li>
+              <li>Reverse ingénieurie</li>
+              <li>Scraping</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section id="travail">
         <div class="section-intro">
           <h2 class="section-title">Réalisations</h2>
-          <p>Sélection de projets illustrant ma capacité à concevoir des architectures back-end solides et des interfaces produits interactives.</p>
+          <p>Sélection de projets illustrant ma capacité à concevoir des architectures back-end solides, des solutions IA et des interfaces produits interactives.</p>
         </div>
         
         <div class="work-grid">
@@ -256,6 +281,7 @@
             <div class="work-tags">
               <span class="tag">Django</span>
               <span class="tag">Next.js</span>
+              <span class="tag">React</span>
               <span class="tag">Docker</span>
               <span class="tag">WebSockets</span>
             </div>
@@ -291,6 +317,19 @@
             </div>
           </article>
 
+          <article class="work-card">
+            <h3>Boxing</h3>
+            <p>IA Prédictive analysant le nombre de palettes et d'espaces disponible dans un hangar, avec detections par intelligence artifcielle</p>
+            <div class="work-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">Tensorflow</span>
+              <span class="tag">Keras</span>
+              <span class="tag">CNN</span>
+              <span class="tag">YOLO-v8</span>
+            </div>
+          </article>
+
         </div>
       </section>
 
@@ -302,12 +341,17 @@
         <ul class="timeline">
           <li class="timeline-item">
             <div class="timeline-date">Depuis 2025</div>
-            <div class="timeline-title">Étudiant en Ingénierie Logicielle — École 42, Paris</div>
+            <div class="UserName">Étudiant en Ingénierie Logicielle — École 42, Paris</div>
             <div class="timeline-desc">Apprentissage intensif en peer-to-peer. Spécialisation en programmation système, développement web full-stack et gestion d'infrastructures.</div>
           </li>
           <li class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="UserName">Hackathons Bearing Point & Data/IA</div>
+            <div class="timeline-desc">Vainqueur du hackathon organisé par Bearing Point</div>
+          </li>
+          <li class="timeline-item">
             <div class="timeline-date">2026</div>
-            <div class="timeline-title">Hackathons & Projets Data/IA</div>
+            <div class="UserName">Hackathons & Projets Data/IA</div>
             <div class="timeline-desc">Participation active à des événements tech (RAISE Summit, Solopreneur & Indie Dev Hackathon) et développement de pipelines ML fonctionnels.</div>
           </li>
         </ul>
@@ -318,7 +362,7 @@
           <h2 class="section-title">Contact</h2>
           <p>Disponible pour échanger sur des opportunités de stage, des collaborations techniques ou de nouveaux défis.</p>
           <p style="margin-top: 1rem; font-size: 1.1rem;">
-            <strong>Email :</strong> <a href="mailto:mohapouge@gmail.com">mohapouge@gmail.com</a><br>
+            <strong>Email :</strong> <a href="mailto:lapougemohamed@gmail.com">lapougemohamed@gmail.com</a><br>
             <strong>GitHub :</strong> <a href="https://github.com/Table-en4" target="_blank" rel="noopener noreferrer">@Table-en4</a>
           </p>
         </div>
