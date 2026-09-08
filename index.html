@@ -1,104 +1,334 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mohamed Lapouge, étudiant à 42 Paris. Profil technique : C, C++, produit, data.">
+  <meta name="description" content="Mohamed Lapouge, Ingénieur Logiciel & Data. Profil technique : C, C++, Python, architecture web et produits IA.">
   <meta name="author" content="Mohamed Lapouge">
-  <meta name="theme-color" content="#fff4ea">
-  <title>Mohamed Lapouge — 42 Paris</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#ffffff">
+  <title>Mohamed Lapouge — Ingénieur Logiciel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design System - Épuré et Professionnel */
+    :root {
+      --bg-color: #faf9f8;
+      --text-main: #2d3748;
+      --text-muted: #718096;
+      --accent: #2b6cb0;
+      --border: #e2e8f0;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .wordmark {
+      font-family: 'Fraunces', serif;
+      color: #1a202c;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    /* Layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+
+    .wordmark {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .nav { display: flex; gap: 1.5rem; font-weight: 600; font-size: 0.95rem; }
+    .nav a { color: var(--text-muted); }
+    .nav a:hover { color: var(--text-main); }
+
+    /* Sections */
+    section { margin-bottom: 6rem; }
+    
+    .section-title {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-lede {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+    /* Compétences */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .skill-category ul { list-style: none; color: var(--text-muted); }
+    .skill-category li { margin-bottom: 0.5rem; }
+
+    /* Travail / Projets */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .work-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .work-card p { color: var(--text-muted); margin-bottom: 1rem; }
+    .work-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.8rem;
+      background: #edf2f7;
+      color: #4a5568;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Parcours */
+    .timeline { list-style: none; border-left: 2px solid var(--border); padding-left: 1.5rem; }
+    .timeline-item { margin-bottom: 2rem; position: relative; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -1.85rem; top: 0.4rem;
+      width: 12px; height: 12px; background: var(--bg-color);
+      border: 2px solid var(--accent); border-radius: 50%;
+    }
+    .timeline-date { font-weight: 600; color: var(--accent); font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .masthead { padding: 1.5rem 0; }
+      .section-title { font-size: 1.75rem; }
+    }
+  </style>
 </head>
 <body>
-  <div class="blobs" aria-hidden="true">
-    <span class="blob blob-a"></span>
-    <span class="blob blob-b"></span>
-    <span class="blob blob-c"></span>
-  </div>
-  <a class="skip" href="#contenu">Aller au contenu</a>
 
-  <header class="masthead">
-    <a class="wordmark" href="./">Mohamed <em>Lapouge</em></a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#profil">Profil</a>
-      <a href="#competences">Compétences</a>
-      <a href="#travail">Travail</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#contact">Contact</a>
-      <button type="button" class="theme-btn" data-theme>Thème : clair</button>
-    </nav>
-  </header>
+  <div class="container">
+    <header class="masthead">
+      <a class="wordmark" href="./">Mohamed Lapouge</a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="#profil">Profil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#travail">Projets</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <main id="contenu">
-    <section class="hero" id="profil" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">42 Paris · Table-en4</p>
-        <h1 id="hero-title">
-          <span>Ingénierie</span>
-          <span>basse, produits</span>
-          <span>un peu sales.</span>
-        </h1>
-        <p class="lede">Étudiant à 42 depuis 2025. Je construis surtout en C et C++ — shells, HTTP, processus — et je sors aussi des trucs qui doivent marcher chez un client : estimation immo, copilotes, NLP.</p>
-        <p>Ce site n’est pas un dump de dépôts. C’est le profil que mon GitHub raconte, relu.</p>
-      </div>
-      <figure class="portrait">
-        <img src="https://avatars.githubusercontent.com/u/100876346?v=4" width="280" height="280" alt="Avatar GitHub de Mohamed Lapouge">
-        <figcaption>@Table-en4</figcaption>
-      </figure>
-    </section>
+    <main id="contenu">
+      <section class="hero" id="profil">
+        <p class="timeline-date">École 42 Paris</p>
+        <h1 class="hero-title">Ingénierie logicielle & architecture système.</h1>
+        <p class="hero-lede">
+          Étudiant à l'École 42, je conçois des systèmes performants et des applications complètes. Mon approche allie une maîtrise de la programmation bas niveau (C/C++) à la création de solutions web et data robustes (Python, Next.js, environnements Docker).
+        </p>
+      </section>
 
-    <section class="band" aria-label="Chiffres tirés de GitHub">
-      <div class="stats" data-stats></div>
-    </section>
+      <section id="competences">
+        <div class="section-intro">
+          <h2 class="section-title">Expertise Technique</h2>
+          <p>Une stack axée sur la performance, la scalabilité et le déploiement de bout en bout, éprouvée lors de hackathons et de projets complexes à 42.</p>
+        </div>
+        
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Systèmes & Backend</h3>
+            <ul>
+              <li>C & C++ (Gestion mémoire, appels système)</li>
+              <li>Python (Django, FastAPI)</li>
+              <li>Node.js</li>
+              <li>Bases de données relationnelles</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Web & Cloud</h3>
+            <ul>
+              <li>React & Next.js</li>
+              <li>Tailwind CSS & Three.js</li>
+              <li>Docker & Nginx</li>
+              <li>WebSockets & Reverse Proxies</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Data & IA</h3>
+            <ul>
+              <li>Modélisation (LightGBM, CatBoost)</li>
+              <li>Pipelines de Machine Learning</li>
+              <li>Traitement NLP & Intégration LLM</li>
+              <li>Ingénierie de données (Pandas, DVF)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-    <section id="competences" aria-labelledby="skills-title">
-      <div class="section-intro">
-        <h2 id="skills-title">Ce que je touche vraiment</h2>
-        <p>Pondéré par ce que j’ai réellement poussé : 42, missions, hackathons. Pas une liste de buzzwords.</p>
-      </div>
-      <ul class="skills" data-skills></ul>
-    </section>
+      <section id="travail">
+        <div class="section-intro">
+          <h2 class="section-title">Réalisations</h2>
+          <p>Sélection de projets illustrant ma capacité à concevoir des architectures back-end solides et des interfaces produits interactives.</p>
+        </div>
+        
+        <div class="work-grid">
+          
+          <article class="work-card">
+            <h3>Transcendence</h3>
+            <p>Développement d'une application web full-stack temps réel. Architecture orientée microservices incluant un système de messagerie en direct et une gestion complète des utilisateurs.</p>
+            <div class="work-tags">
+              <span class="tag">Django</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Docker</span>
+              <span class="tag">WebSockets</span>
+            </div>
+          </article>
 
-    <section id="travail" aria-labelledby="work-title">
-      <div class="section-intro">
-        <h2 id="work-title">Travail</h2>
-        <p>Six morceaux qui disent comment je code. Le détail est dans les repos ; ici, c’est le métier.</p>
-      </div>
-      <div class="work" data-featured>
-        <noscript>
+          <article class="work-card">
+            <h3>Vitality</h3>
+            <p>Application de prédiction de liaisons moléculaires basée sur l'IA. Intégration de modèles avancés (ESM2, DiffDock) via une API robuste pour traiter des évaluations complexes.</p>
+            <div class="work-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Machine Learning</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <h3>Modèle d'Estimation Immobilière (ia_immo)</h3>
+            <p>Conception d'un modèle d'évaluation immobilière basé sur les données de transactions françaises (DVF). Traitement massif de données et entraînement de modèles prédictifs.</p>
+            <div class="work-tags">
+              <span class="tag">Python</span>
+              <span class="tag">LightGBM</span>
+              <span class="tag">CatBoost</span>
+              <span class="tag">Data Engineering</span>
+            </div>
+          </article>
+
           <article class="work-card">
             <h3>BidEdge</h3>
-            <p>Copilote d’enchères, RAISE Summit 2026.</p>
+            <p>Développement d'un copilote pour la gestion d'enchères, conçu et présenté dans le cadre du RAISE Summit 2026.</p>
+            <div class="work-tags">
+              <span class="tag">Hackathon</span>
+              <span class="tag">IA Integration</span>
+            </div>
           </article>
-        </noscript>
-      </div>
-    </section>
 
-    <section id="parcours" aria-labelledby="path-title">
-      <div class="section-intro">
-        <h2 id="path-title">Parcours</h2>
-        <p>Pas un CV en colonnes. Les dates qui comptent.</p>
-      </div>
-      <ol class="path" data-timeline></ol>
-    </section>
+        </div>
+      </section>
 
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="section-intro">
-        <h2 id="contact-title">Écrire</h2>
-      </div>
-      <p class="contact-line">Un stage, un hackathon, un truc à casser : <a href="mailto:mohapouge@gmail.com">mohapouge@gmail.com</a>. Le compte : <a href="https://github.com/Table-en4" rel="noopener noreferrer">github.com/Table-en4</a>.</p>
-    </section>
-  </main>
+      <section id="parcours">
+        <div class="section-intro">
+          <h2 class="section-title">Parcours</h2>
+        </div>
+        
+        <ul class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-date">Depuis 2025</div>
+            <div class="timeline-title">Étudiant en Ingénierie Logicielle — École 42, Paris</div>
+            <div class="timeline-desc">Apprentissage intensif en peer-to-peer. Spécialisation en programmation système, développement web full-stack et gestion d'infrastructures.</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">2026</div>
+            <div class="timeline-title">Hackathons & Projets Data/IA</div>
+            <div class="timeline-desc">Participation active à des événements tech (RAISE Summit, Solopreneur & Indie Dev Hackathon) et développement de pipelines ML fonctionnels.</div>
+          </li>
+        </ul>
+      </section>
 
-  <footer class="site-footer">
-    <p>© <span data-year>2026</span> Mohamed Lapouge</p>
-    <p>Page statique. Pas de traqueurs.</p>
-  </footer>
+      <section id="contact">
+        <div class="section-intro">
+          <h2 class="section-title">Contact</h2>
+          <p>Disponible pour échanger sur des opportunités de stage, des collaborations techniques ou de nouveaux défis.</p>
+          <p style="margin-top: 1rem; font-size: 1.1rem;">
+            <strong>Email :</strong> <a href="mailto:mohapouge@gmail.com">mohapouge@gmail.com</a><br>
+            <strong>GitHub :</strong> <a href="https://github.com/Table-en4" target="_blank" rel="noopener noreferrer">@Table-en4</a>
+          </p>
+        </div>
+      </section>
+    </main>
 
-  <script type="module" src="./js/main.js"></script>
+    <footer class="site-footer">
+      <p>© 2026 Mohamed Lapouge. Conçu avec rigueur.</p>
+    </footer>
+  </div>
+
 </body>
 </html>
