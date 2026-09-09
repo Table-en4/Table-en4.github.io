@@ -57,10 +57,17 @@
     }
 
     .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      font-family: 'Fraunces', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-family: 'Fraunces', serif;
+        display: inline-block;
+        transition: transform 0.25s ease;
     }
+
+    .logo:hover {
+        transform: rotate(-8deg);
+    }
+
 
     nav {
       display: flex;
@@ -156,7 +163,7 @@
     .skill-card {
       border: var(--stroke) solid var(--text-dark);
       padding: 2rem;
-      transition: var(--transition); /* Votre transition originale conservée */
+      transition: transform var(--transition), box-shadow var(--transition);
       position: relative;
       overflow: hidden;
     }
@@ -218,7 +225,7 @@
       border: var(--stroke) solid var(--text-dark);
       padding: 2.5rem;
       background: white;
-      transition: var(--transition); /* Votre transition originale conservée */
+      transition: transform var(--transition), box-shadow var(--transition);
       position: relative;
     }
 
@@ -290,7 +297,7 @@
       padding: 2rem;
       border: var(--stroke) solid var(--text-dark);
       background: white;
-      transition: var(--transition); /* Votre transition originale conservée */
+      transition: transform var(--transition), background var(--transition);
     }
 
     .timeline-item::before {
@@ -459,55 +466,28 @@
 
 
     /* =========================================
-       CORRECTION : ANIMATIONS SCROLL INFINI 
-       ET COMPATIBLES AVEC VOS HOVERS
+       CORRECTION DÉFINITIVE : ANIMATIONS SCROLL
+       (Plus de keyframes, juste des transitions)
        ========================================= */
 
     /* 1. L'état initial (invisible et décalé vers le bas) */
     .reveal {
       opacity: 0;
-      /* On utilise 'translate' (CSS moderne) au lieu de 'transform' 
-         pour ne jamais entrer en conflit avec vos animations au survol */
+      translate: 0 40px; /* On utilise translate, pas transform, pour sauver le :hover */
+      /* Les éléments reviennent à leur place en douceur grâce à cette transition */
+      transition: opacity 0.8s ease-out, translate 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* 2. L'animation quand on descend (Apparition) */
+    /* 2. L'état visible (ajouté par JS) */
     .reveal.active {
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 1;
+      translate: 0 0;
     }
 
-    /* 3. L'animation quand on remonte (Disparition) */
-    .reveal.exit {
-      animation: fadeDown 0.5s ease-out forwards;
-    }
-
-    /* Les images clés pour l'apparition */
-    @keyframes fadeUp {
-      from { 
-        opacity: 0; 
-        translate: 0 40px; 
-      }
-      to { 
-        opacity: 1; 
-        translate: 0 0; 
-      }
-    }
-
-    /* Les images clés pour la disparition */
-    @keyframes fadeDown {
-      from { 
-        opacity: 1; 
-        translate: 0 0; 
-      }
-      to { 
-        opacity: 0; 
-        translate: 0 40px; 
-      }
-    }
-
-    /* Effets de décalage (stagger) pour les grilles */
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
+    /* 3. Décalages (stagger) pour la grille : on utilise transition-delay maintenant ! */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
 
   </style>
 </head>
@@ -672,7 +652,7 @@
 
       <section id="parcours">
         <br>
-        <div class="section-title ">
+        <div class="section-title reveal">
           <h2>Parcours</h2>
         </div>
         
@@ -737,21 +717,17 @@
       const reveals = document.querySelectorAll(".reveal");
 
       const revealOptions = {
-        threshold: 0.15 // Déclenche l'animation quand 15% de l'élément est visible
+        threshold: 0.1,
+        rootMargin: "0px 0px -20px 0px"
       };
 
       const revealOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // L'élément rentre à l'écran : on enlève la classe de sortie et on ajoute l'active
-            entry.target.classList.remove("exit");
             entry.target.classList.add("active");
           } else {
-            // L'élément sort de l'écran : on joue l'animation inverse
-            // (uniquement s'il a déjà été affiché au moins une fois)
-            if (entry.target.classList.contains("active")) {
+            if (entry.boundingClientRect.top > 0) {
               entry.target.classList.remove("active");
-              entry.target.classList.add("exit");
             }
           }
         });
