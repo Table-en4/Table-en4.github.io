@@ -364,7 +364,6 @@
     }
 
     .contact-section a:hover {
-      background: var(--pastel-pink);
       padding: 0 0.25rem;
     }
 
@@ -385,9 +384,68 @@
     }
 
     .github-button:hover {
-      background: var(--pastel-pink);
+      background: var(--bg);
       color: var(--text-dark);
       transform: scale(1.05);
+    }
+
+    .linkedin-button {
+      background: #0077B5;
+      position: relative;
+      padding: 17px 15px;
+      display: flex;
+      align-items: center;
+      font-size: 17px;
+      font-weight: 400;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid var(--bg);
+      border-radius: 27px;
+      outline: none;
+      overflow: hidden;
+      color: var(--bg);
+      transition: color 0.3s 0.1s ease-out;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .linkedin-button span {
+      margin: 0;
+      transform: translateY(2px);
+    }
+
+    .linkedin-button::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      content: "";
+      border-radius: 50%;
+      display: block;
+      width: 20em;
+      height: 20em;
+      left: -5em;
+      text-align: center;
+      transition: box-shadow 0.5s ease-out;
+      z-index: -1;
+    }
+
+    .linkedin-button:hover {
+      color: var(--bg);
+      border: 1px var(--bg);
+    }
+
+    .linkedin-button:hover::before {
+      box-shadow: inset 0 0 0 10em var(--bg);
+    }
+
+    .linkedin-button svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      transform: translateY(-2px);
     }
 
     footer {
@@ -700,10 +758,22 @@
         </a>
 
         <a href="https://www.linkedin.com/in/mohamed-lapouge-4486a8381/">
-          <button>
+          <button class="linkedin-button">
+            <!-- Logo LinkedIn -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6C1.12 6 0 4.88 0 3.5C0 2.12 1.12 1 2.5 1C3.86 1 4.98 2.12 4.98 3.5ZM0.22 8.5H4.78V24H0.22V8.5ZM8.34 8.5H12.72V10.44H12.78C13.38 9.36 14.84 8.22 17.02 8.22C21.44 8.22 24 10.98 24 16.02V24H19.44V16.88C19.44 14.32 18.84 12.66 16.66 12.66C14.48 12.66 13.44 14.14 13.44 16.88V24H8.34V8.5Z"/>
+            </svg>
+
             <span>Mohamed Lapouge</span>
           </button>
         </a>
+
       </div>
 
       <footer>
