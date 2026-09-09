@@ -21,6 +21,7 @@
       --pastel-green: #d9ffe8;
       --pastel-yellow: #fffdd9;
       --pastel-purple: #f0d9ff;
+      --pastel-yp: #cca3c7 ;
       --stroke: 4px;
       --transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
@@ -117,22 +118,34 @@
       line-height: 1.7;
     }
 
-    section {
-      margin-bottom: 8rem;
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      30%  { transform: translateY(-12px); }
+      60%  { transform: translateY(4px); }
+      100% { transform: translateY(0); }
     }
 
     .section-header {
       margin-bottom: 3rem;
     }
 
-    .section-header h2 {
+    /* Le titre seul saute */
+    .section-title:hover {
+      animation: bounce 0.5s ease;
+    }
+
+    .section-title h2 {
       display: inline-block;
       border: var(--stroke) solid var(--text-dark);
       padding: 0.5rem 1.5rem;
       margin-bottom: 1.5rem;
     }
 
-    .section-intro { font-size: 1rem; color: var(--text-muted); max-width: 700px; }
+    .section-intro {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
 
     .skills-grid {
       display: grid;
@@ -160,11 +173,11 @@
     }
 
     .skill-card:nth-child(1) { background: var(--pastel-pink); }
-    .skill-card:nth-child(2) { background: var(--pastel-blue); }
-    .skill-card:nth-child(3) { background: var(--pastel-green); }
-    .skill-card:nth-child(4) { background: var(--pastel-yellow); }
-    .skill-card:nth-child(5) { background: var(--pastel-purple); }
-    .skill-card:nth-child(6) { background: var(--pastel-pink); }
+    .skill-card:nth-child(2) { background: var(--pastel-purple); }
+    .skill-card:nth-child(3) { background: var(--pastel-blue); }
+    .skill-card:nth-child(4) { background: var(--pastel-green); }
+    .skill-card:nth-child(5) { background: var(--pastel-yellow); }
+    .skill-card:nth-child(6) { background: var(--pastel-yp); }
 
     .skill-card:hover {
       transform: translateY(-8px) rotate(-1deg);
@@ -469,13 +482,17 @@
           Étudiant à l'École 42, je conçois des systèmes performants et des applications complètes avec des solutions d'intelligence artificielle. Mon approche allie une maîtrise de la programmation bas niveau (C/C++) à la création de solutions web et data robustes (Python, Next.js, environnements Docker).
         </p>
       </section>
-
       <section id="competences">
         <div class="section-header">
-          <h2>Expertise Technique</h2>
-          <p class="section-intro">Une stack axée sur la performance, la scalabilité et le déploiement de bout en bout, éprouvée lors de hackathons, de projets persos et de projets complexes à 42.</p>
+          <div class="section-title">
+            <h2>Expertise Technique</h2>
+          </div>
+
+          <p class="section-intro">
+            Une stack axée sur la performance, la scalabilité et le déploiement de bout en bout, éprouvée lors de hackathons, de projets persos et de projets complexes à 42.
+          </p>
         </div>
-        
+
         <div class="skills-grid">
           <div class="skill-card">
             <h3>Systèmes & Backend</h3>
@@ -535,10 +552,18 @@
       </section>
 
       <section id="travail">
+        <br>
         <div class="section-header">
-          <h2>Réalisations</h2>
-          <p class="section-intro">Sélection de projets illustrant ma capacité à concevoir des architectures back-end solides, des solutions IA et des interfaces produits interactives.</p>
+          <div class="section-title">
+            <h2>Réalisations</h2>
+          </div>
+
+          <p class="section-intro">
+            Sélection de projets illustrant ma capacité à concevoir des architectures back-end solides, des solutions IA et des interfaces produits interactives.
+
+          </p>
         </div>
+
         
         <div class="work-grid">
           <article class="work-card">
@@ -634,7 +659,7 @@
 
       <div class="contact-section" id="contact">
         <h2>Contact</h2>
-        <p>Disponible pour échanger sur des opportunités de stage, des collaborations techniques ou de nouveaux défis.</p>
+        <p>Disponible pour échanger sur des opportunités de stage ou des collaborations techniques</p>
         <p><strong>Email :</strong> <a href="mailto:lapougemohamed@gmail.com">lapougemohamed@gmail.com</a></p>
       </div>
       
@@ -654,7 +679,7 @@
 
 
       <footer>
-        © 2026 Mohamed Lapouge. Conçu avec rigueur.
+        © 2026 Mohamed Lapouge.
       </footer>
     </main>
   </div>
